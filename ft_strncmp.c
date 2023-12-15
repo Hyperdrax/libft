@@ -6,23 +6,26 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:20:04 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/15 17:42:33 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/15 17:46:08 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "libft.h"
 
-int	ft_strncmp(const char *st1, const char *st2, size_t n)
+int	ft_strncmp(const char *s, const char *w, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	if (n == 0)
+	if (n != 0)
+	{
+		while (i < n - 1 && s[i] != '\0' && w[i] != '\0' && w[i] == w[i])
+			i++;
+		return ((unsigned char)s[i] - (unsigned char)w[i]);
+	}
+	else
 		return (0);
-	while (i < n - 1 && st1[i] != '\0' && st2[i] != '\0' && st1[i] == st2[i])
-		i++;
-	return ((unsigned char)st1[i] - (unsigned char)st2[i]);
 }
 // int main() {
 //     const char str1a[] = "Hello, World!";

@@ -6,20 +6,25 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:02:16 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/15 17:50:20 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/15 17:52:23 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	char	*ptr;
+	int		i;
+
+	ptr = (char *) s;
+	i = 0;
+	while (*(ptr + i))
 	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
+		if (*(ptr + i) == c)
+			return (ptr + i);
+		i++;
 	}
 	if (c == '\0')
-		return ((char *)s);
+		return (ptr + i);
 	return (0);
 }
 

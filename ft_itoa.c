@@ -3,61 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 09:05:46 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/07 14:04:12 by fhensel        ###   ########.fr       */
+/*   Updated: 2023/12/18 14:20:44 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-static int	getlen(int value)
+static int	getlen(long nbr)
 {
-	int	l;
+	int	count;
 
-	l = 1;
-	if (value < 0)
+	count = 0;
+	if (nbr < 0)
 	{
-		l++;
-		value = -value;
+		count++;
+		nbr = -nbr;
 	}
-	while (value > 9)
+	if (nbr == 0)
+		count++;
+	while (nbr != 0)
 	{
-		l++;
-		value /= 10;
+		nbr /= 10;
+		count++;
 	}
-	return (l);
+	return (count);
+}
+
+static char	*place(int len)
+{
+	char	*a;
+
+	a = malloc((len + 1) * sizeof(char));
+	if (!a)
+		return (NULL);
+	a[0] = '0';
+	return (a);
 }
 
 char	*ft_itoa(int n)
 {
-	int			len;
-	char		*allocated_memory;
-	const char	*digits = "0123456789";
+	unsigned int	len;
+	int				i;
+	char			*allocated_memory;
+	long			nbr;
 
+	nbr = n;
 	len = getlen(n);
-	allocated_memory = malloc(sizeof(char) * (len + 1));
+	allocated_memory = place(len);
 	if (!allocated_memory)
-		return (0);
-	allocated_memory[len] = '\0';
-	if (n == 0)
-		allocated_memory[0] = '0';
+		return (NULL);
+	if (nbr < 0)
+		nbr = -nbr;
+	i = len - 1;
+	while (nbr != 0)
+	{
+		allocated_memory[i] = nbr % 10 + '0';
+		nbr /= 10;
+		i--;
+	}
 	if (n < 0)
 		allocated_memory[0] = '-';
-	while (n)
-	{
-		len--;
-		if (n > 0)
-			allocated_memory[len] = digits[n % 10];
-		else
-			allocated_memory[len] = digits[n % 10 * -1];
-		n /= 10;
-	}
+	allocated_memory[len] = 0;
 	return (allocated_memory);
 }
 // int main() {
-//     int test_cases[] = {123, -456, 0, 987654321, -123456789, 42};
+//     int test_cases[] = {123, -456, 0, 987654321, -2147483648, 42};
 //     for (int i = 0; i < sizeof(test_cases) / sizeof(test_cases[0]); i++) {
 //         int value = test_cases[i];
 //         char *result = ft_itoa(value);

@@ -6,39 +6,47 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:41:06 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/15 16:09:38 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/18 14:39:53 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_isspace(int c)
+{
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	multiplier;
 	int	result;
+	int	sign;
+	int	i;
 
-	i = 0;
-	multiplier = 1;
 	result = 0;
-	while (str[i] != '\0')
+	sign = 1;
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' && str[i + 1] != '-')
+		i++;
+	if (str[i] == '-')
 	{
-		while (str[i] == ' ')
-			i++;
-		if (str[i] == '-')
-			multiplier = -1;
-		if (str[i] == '-' || str[i] == '+')
-			i++;
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			result = result * 10 + (str[i] - '0');
-			i++;
-		}
-		else
-			return (result * multiplier);
+		sign = -1;
+		i++;
 	}
-	return (result * multiplier);
+	while (str[i] && str[i] >= 48 && str[i] <= 57)
+	{
+		result *= 10;
+		result += str[i] - 48;
+		i++;
+	}
+	result *= sign;
+	return (result);
 }
+
 
 // int main() {
 //     const char *test_cases[] = {

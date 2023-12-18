@@ -15,18 +15,20 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t	i;
-	char	*s;
+	unsigned char	*s;
+	size_t			i;
+	unsigned char	uc;
 
-	s = (char *)str;
+	s = (unsigned char *) str;
+	uc = (unsigned char) c;
 	i = 0;
 	while (i < n)
 	{
-		if (s[i] == c)
-			return ((void *)s + i);
+		if (s[i] == uc)
+			return ((void *) &s[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 // int main() {
 //     const char str1[] = "Hello, World!";

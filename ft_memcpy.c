@@ -6,7 +6,7 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:11:11 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/15 16:16:58 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/18 15:28:25 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char		*d;
 	const char	*s;
 
+	if (!dest && !src)
+		return (NULL);
 	d = (char *)dest;
 	s = (const char *)src;
 	while (n--)

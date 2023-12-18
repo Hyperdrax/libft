@@ -6,28 +6,33 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 09:47:54 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/15 16:23:56 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/18 15:13:39 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	char	*allocated_memory;
 	size_t	i;
+	char	*str;
 
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
 	i = 0;
-	allocated_memory = malloc(sizeof(char) * (len + 1));
-	if (!allocated_memory)
-		return (0);
 	while (i < len)
 	{
-		allocated_memory[i] = s[start + i];
+		str[i] = s[start + i];
 		i++;
 	}
-	allocated_memory[i] = '\0';
-	return (allocated_memory);
+	return (str);
 }
 // int main() {
 //     const char str1[] = "Hello, World!";

@@ -6,108 +6,98 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 09:10:11 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/15 16:18:03 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/18 17:04:17 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int	count_tokens(const char *s, char c)
+static void	vars(size_t *i, int *j, int *start_word)
+{
+	*i = 0;
+	*j = 0;
+	*start_word = -1;
+}
+
+static int	count_words(const char *str, char c)
 {
 	int	count;
-	int	in_token;
+	int	x;
 
 	count = 0;
-	in_token = 0;
-	while (*s)
+	x = 0;
+	while (*str)
 	{
-		if (*s == c)
-			in_token = 0;
-		else if (in_token == 0)
+		if (*str != c && x == 0)
 		{
-			in_token = 1;
+			x = 1;
 			count++;
 		}
-		s++;
+		else if (*str == c)
+			x = 0;
+		str++;
 	}
 	return (count);
 }
 
-static void	free_tokens(char **tokens)
+static char	*make_word(const char *str, int start, int end)
+{
+	char	*word;
+	int		i;
+
+	i = 0;
+	word = malloc((end - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	while (start < end)
+	{
+		word[i] = str[start];
+		i++;
+		start++;
+	}
+	word[i] = 0;
+	return (word);
+}
+
+static void	*free_it(char **strs, int count)
 {
 	int	i;
 
-	if (tokens)
+	i = 0;
+	while (i < count)
 	{
-		i = 0;
-		while (tokens[i] != 0)
-		{
-			free(tokens[i]);
-			i++;
-		}
-		free(tokens);
+		free(strs[i]);
+		i++;
 	}
+	free(strs);
+	return (NULL);
 }
 
-static char	*strndup(const char *s, size_t n)
+char	**ft_split(const char *s, char c)
 {
-	size_t	i;
-	char	*result;
-
-	result = (char *)malloc(n + 1);
-	if (result)
-	{
-		i = 0;
-		while (i < n)
-		{
-			result[i] = s[i];
-			i++;
-		}
-		result[n] = '\0';
-	}
-	return (result);
-}
-
-static char	**split_tokens(char **result, const char *s, char c)
-{
-	int	token_length;
-	int	token_index;
-
-	token_index = 0;
-	while (*s)
-	{
-		while (*s == c)
-			s++;
-		token_length = 0;
-		while (s[token_length] != c && s[token_length] != '\0')
-			token_length++;
-		result[token_index] = strndup(s, token_length);
-		if (result[token_index] == NULL)
-		{
-			free_tokens(result);
-			return (NULL);
-		}
-		s += token_length;
-		token_index++;
-	}
-	return (result);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		token_count;
 	char	**result;
+	size_t	i;
+	int		j;
+	int		start_word;
 
-	if (s == NULL)
+	vars(&i, &j, &start_word);
+	result = ft_calloc((count_words(s, c) + 1), sizeof(char *));
+	if (!result)
 		return (NULL);
-	token_count = count_tokens(s, c);
-	result = (char **)malloc(sizeof(char *) * (token_count + 1));
-	if (result == NULL)
-		return (NULL);
-	result = split_tokens(result, s, c);
-	if (result == NULL)
-		return (NULL);
-	result[token_count] = NULL;
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] != c && start_word < 0)
+			start_word = i;
+		if ((s[i] == c || i == ft_strlen(s)) && start_word >= 0)
+		{
+			result[j] = make_word(s, start_word, i);
+			if (!(result[j]))
+				return (free_it(result, j));
+			start_word = -1;
+			j++;
+		}
+		i++;
+	}
 	return (result);
 }
 // int main() {

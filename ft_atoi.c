@@ -6,7 +6,7 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:41:06 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/18 14:39:53 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/18 14:49:35 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	ft_atoi(const char *str)
 	result *= sign;
 	return (result);
 }
-
 
 // int main() {
 //     const char *test_cases[] = {

@@ -6,13 +6,13 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 09:10:11 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/18 17:12:13 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/18 17:47:16 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_initiate_vars(size_t *i, int *j, int *s_word)
+static void	vars(size_t *i, int *j, int *s_word)
 {
 	*i = 0;
 	*j = 0;
@@ -80,7 +80,7 @@ char	**ft_split(const char *s, char c)
 	int		j;
 	int		s_word;
 
-	ft_initiate_vars(&i, &j, &s_word);
+	vars(&i, &j, &s_word);
 	res = ft_calloc((word_count(s, c) + 1), sizeof(char *));
 	if (!res)
 		return (NULL);

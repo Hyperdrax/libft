@@ -6,30 +6,26 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 08:11:17 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/18 15:19:20 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/18 17:16:31 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int	i;
-	char			*res;
-	char			cc;
+	int		i;
 
-	cc = (char) c;
-	res = NULL;
-	i = 0;
-	while (str[i])
+	i = ft_strlen(s);
+	if (c == 0)
+		return ((char *)s + i);
+	while (i >= 0)
 	{
-		if (str[i] == cc)
-			res = (char *) &str[i];
-		i++;
+		if (s[i] == c)
+			return ((char *)s + i);
+		i--;
 	}
-	if (str[i] == c)
-		res = (char *) &str[i];
-	return (res);
+	return (NULL);
 }
 // int main() {
 //     const char str1[] = "Hello, World!";

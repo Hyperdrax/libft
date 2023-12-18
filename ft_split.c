@@ -6,20 +6,20 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 09:10:11 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/18 17:04:17 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/18 17:12:13 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	vars(size_t *i, int *j, int *start_word)
+static void	ft_initiate_vars(size_t *i, int *j, int *s_word)
 {
 	*i = 0;
 	*j = 0;
-	*start_word = -1;
+	*s_word = -1;
 }
 
-static int	count_words(const char *str, char c)
+static int	word_count(const char *str, char c)
 {
 	int	count;
 	int	x;
@@ -40,7 +40,7 @@ static int	count_words(const char *str, char c)
 	return (count);
 }
 
-static char	*make_word(const char *str, int start, int end)
+static char	*fill_word(const char *str, int start, int end)
 {
 	char	*word;
 	int		i;
@@ -59,7 +59,7 @@ static char	*make_word(const char *str, int start, int end)
 	return (word);
 }
 
-static void	*free_it(char **strs, int count)
+static void	*ft_free(char **strs, int count)
 {
 	int	i;
 
@@ -75,30 +75,30 @@ static void	*free_it(char **strs, int count)
 
 char	**ft_split(const char *s, char c)
 {
-	char	**result;
+	char	**res;
 	size_t	i;
 	int		j;
-	int		start_word;
+	int		s_word;
 
-	vars(&i, &j, &start_word);
-	result = ft_calloc((count_words(s, c) + 1), sizeof(char *));
-	if (!result)
+	ft_initiate_vars(&i, &j, &s_word);
+	res = ft_calloc((word_count(s, c) + 1), sizeof(char *));
+	if (!res)
 		return (NULL);
 	while (i <= ft_strlen(s))
 	{
-		if (s[i] != c && start_word < 0)
-			start_word = i;
-		if ((s[i] == c || i == ft_strlen(s)) && start_word >= 0)
+		if (s[i] != c && s_word < 0)
+			s_word = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && s_word >= 0)
 		{
-			result[j] = make_word(s, start_word, i);
-			if (!(result[j]))
-				return (free_it(result, j));
-			start_word = -1;
+			res[j] = fill_word(s, s_word, i);
+			if (!(res[j]))
+				return (ft_free(res, j));
+			s_word = -1;
 			j++;
 		}
 		i++;
 	}
-	return (result);
+	return (res);
 }
 // int main() {
 //     const char *input_string = "Hello,World,How,Are,You";

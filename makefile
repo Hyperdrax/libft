@@ -6,7 +6,7 @@
 #    By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:03:14 by fhensel           #+#    #+#              #
-#    Updated: 2023/12/15 16:03:03 by fhensel          ###   ########.fr        #
+#    Updated: 2023/12/18 18:01:08 by fhensel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,10 @@ OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
 $(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p $(OBJS_DIR)
-	@echo "Compiling: $<"
 	@gcc $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
-	@echo "Creating $(NAME)..."
 	@ar r $(NAME) $(OBJECTS_PREFIXED)
-	@echo "Libft Done !"
 
 all: $(NAME)
 

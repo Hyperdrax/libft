@@ -16,11 +16,13 @@
 void	ft_bzero(void *s, size_t n)
 {
 	char	*char_str;
+	size_t	i;
 
 	char_str = (char *)s;
-	while (n--)
+	while (i < n)
 	{
 		*char_str++ = (char)0;
+		i++;
 	}
 }
 // int main() {

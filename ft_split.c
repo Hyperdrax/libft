@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 09:10:11 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/26 13:14:15 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/26 13:15:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static char placeholder(const char *s, char c, int s_word, char **res, int j,siz
 	}
 	return (res);
 }
- 
+
 char	**ft_split(const char *s, char c)
 {
 	char	**res;

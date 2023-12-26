@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:44:33 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/15 16:17:12 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/26 18:45:45 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 void	copyforward(void *dst, const void *src, size_t len)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:59:01 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/15 16:10:59 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/26 18:41:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	ft_isalnum(int argument)
 {
-	if (argument >= '0' && argument <= '9')
+	if (ft_isdigit(argument) != 0)
 		return (1);
-	else if (argument >= 'A' && argument <= 'Z')
-		return (1);
-	else if (argument >= 'a' && argument <= 'z')
+	else if (ft_isalpha(argument) != 0)
 		return (1);
 	else
 		return (0);

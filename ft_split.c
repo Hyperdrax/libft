@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 09:10:11 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/26 13:15:00 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/26 18:37:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	*ft_free(char **strs, int count)
 	free(strs);
 	return (NULL);
 }
-static char placeholder(const char *s, char c, int s_word, char **res, int j,size_t i)
+static char **check_for_word(const char *s, char c, int s_word, char **res, int j,size_t i)
 {
 	while (i <= ft_strlen(s))
 	{
@@ -90,7 +90,6 @@ char	**ft_split(const char *s, char c)
 	size_t	i;
 	int		j;
 	int		s_word;
-	char	end;
 
 	i = 0;
 	j = 0;
@@ -98,7 +97,7 @@ char	**ft_split(const char *s, char c)
 	res = ft_calloc((word_count(s, c) + 1), sizeof(char *));
 	if (!res)
 		return (NULL);
-	placeholder(s, c, s_word, res, j, i);
+	check_for_word(s, c, s_word, res, j, i);
 	return (res);
 }
 // int main() {

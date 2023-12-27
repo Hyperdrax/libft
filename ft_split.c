@@ -6,11 +6,18 @@
 /*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 09:10:11 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/27 10:24:32 by fhensel          ###   ########.fr       */
+/*   Updated: 2023/12/18 17:47:16 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	vars(size_t *i, int *j, int *s_word)
+{
+	*i = 0;
+	*j = 0;
+	*s_word = -1;
+}
 
 static int	word_count(const char *str, char c)
 {
@@ -66,13 +73,17 @@ static void	*ft_free(char **strs, int count)
 	return (NULL);
 }
 
-static char	**check_for_word(const char *s, char c, int s_word, char **res)
+char	**ft_split(const char *s, char c)
 {
+	char	**res;
 	size_t	i;
 	int		j;
+	int		s_word;
 
-	i = 0;
-	j = 0;
+	vars(&i, &j, &s_word);
+	res = ft_calloc((word_count(s, c) + 1), sizeof(char *));
+	if (!res)
+		return (NULL);
 	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && s_word < 0)
@@ -87,19 +98,6 @@ static char	**check_for_word(const char *s, char c, int s_word, char **res)
 		}
 		i++;
 	}
-	return (res);
-}
-
-char	**ft_split(const char *s, char c)
-{
-	char	**res;
-	int		s_word;
-
-	s_word = -1;
-	res = ft_calloc((word_count(s, c) + 1), sizeof(char *));
-	if (!res)
-		return (NULL);
-	check_for_word(s, c, s_word, res);
 	return (res);
 }
 // int main() {

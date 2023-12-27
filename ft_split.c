@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 09:10:11 by fhensel           #+#    #+#             */
-/*   Updated: 2023/12/26 18:37:20 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/27 10:24:32 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,14 @@ static void	*ft_free(char **strs, int count)
 	free(strs);
 	return (NULL);
 }
-static char **check_for_word(const char *s, char c, int s_word, char **res, int j,size_t i)
+
+static char	**check_for_word(const char *s, char c, int s_word, char **res)
 {
+	size_t	i;
+	int		j;
+
+	i = 0;
+	j = 0;
 	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && s_word < 0)
@@ -87,17 +93,13 @@ static char **check_for_word(const char *s, char c, int s_word, char **res, int 
 char	**ft_split(const char *s, char c)
 {
 	char	**res;
-	size_t	i;
-	int		j;
 	int		s_word;
 
-	i = 0;
-	j = 0;
 	s_word = -1;
 	res = ft_calloc((word_count(s, c) + 1), sizeof(char *));
 	if (!res)
 		return (NULL);
-	check_for_word(s, c, s_word, res, j, i);
+	check_for_word(s, c, s_word, res);
 	return (res);
 }
 // int main() {

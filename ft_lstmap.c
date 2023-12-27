@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 12:41:35 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/26 12:48:02 by codespace        ###   ########.fr       */
+/*   Created: 2023/12/26 12:41:35 by fhensel           #+#    #+#             */
+/*   Updated: 2023/12/27 10:27:31 by fhensel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list		*f_list;
+	t_list	*f_list;
 
 	if (!lst || !f)
 		return (NULL);

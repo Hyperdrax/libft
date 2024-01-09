@@ -256,20 +256,98 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
  * @brief Searches for the first occurrence of the character c in the string pointed to by the argument str.
  * @param s This is the C string to be scanned.
  * @param c This is the character to be searched in str.
+ * @return This returns a pointer to the first occurrence of the character c in the string str, or NULL if the character is not found.
 */
 char	*ft_strchr(const char *s, int i);
 
-
+/**
+ * @brief Duplicates s into a new string.
+ * @param s This is the string to be duplicated.
+ * @return The newly allocated string, or NULL if the allocation fails.
+*/
 char	*ft_strdup(const char *s);
+
+/**
+ * @brief locates the first	occurrence of the null-terminated string little in the string big, where not more than len characters are searched.
+ * @param haystack This is the main C string to be scanned.
+ * @param needle This is the small string to be searched with-in haystack string.
+ * @param len This is the number of characters to be searched.
+ * @return If needle is an empty string, haystack is returned; if needle occurs nowhere in haystack, NULL is returned; otherwise a pointer to the first character of the first occurrence of needle is returned.
+*/
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+
+/**
+ * @brief Searches for the last occurrence of the character c in the string pointed to, by the argument str.
+ * @param s This is the C string to be scanned.
+ * @param c This is the character to be searched in str.
+ * @return This returns a pointer to the last occurrence of the character c in the string str, or NULL if the character is not found.
+*/
 char	*ft_strrchr(const char *s, int c);
+
+/**
+ * @brief Allocates (with malloc(3)) and returns a substring from the string ’s’. The substring begins at index ’start’ and is of maximum size ’len’.
+ * @param s The string from which to create the substring.
+ * @param start: The start index of the substring in the string ’s’.
+ * @param len The maximum length of the substring.
+ * @return The substring. NULL if the allocation fails.
+*/
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+/**
+ * @brief Allocates (with malloc(3)) and returns a new string, which is the result of the concatenation of ’s1’ and ’s2’.
+ * @param s1 The prefix string.
+ * @param s2 The suffix string.
+ * @return The new string. NULL if the allocation fails.
+*/
 char	*ft_strjoin(char const *s1, char const *s2);
+
+/**
+ * @brief Allocates (with malloc(3)) and returns a copy of ’s1’ with the characters specified in ’set’ removed from the beginning and the end of the string.
+ * @param s1  The string to be trimmed.
+ * @param set The reference set of characters to trim.
+ * @return The trimmed string. NULL if the allocation fails.
+*/
 char	*ft_strtrim(char const *s1, char const *set);
+
+/**
+ * @brief Applies the function ’f’ to each character of the string ’s’, and passing its index as first argument to create a new string (with malloc(3)) resulting from successive applications of ’f’.
+ * @param s The string on which to iterate.
+ * @param f The function to apply to each character.
+ * @return The string created from the successive applications of ’f’. Returns NULL if the allocation fails.
+ */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/**
+ * @brief Allocates (with malloc(3)) and returns an array of strings obtained by splitting ’s’ using the character ’c’ as a delimiter. The array must end with a NULL pointer.
+ * @param str The string to be split.
+ * @param c The delimiter character.
+ * @return The array of new strings resulting from the split. NULL if the allocation fails.
+ */
 char	**ft_split(char const *str, char c);
+
+/**
+ * @brief Counts the lenght of the String str.
+ * @param str The string to count.
+ * @return The lenght of the string.
+*/
 size_t	ft_strlen(const char *str);
+
+/**
+ * @brief Copies up to size - 1 characters from the NUL-terminated string src to dst, NUL-terminating the result.
+ * @param dest The string to copy to.
+ * @param src The string to copy from.
+ * @param size The size of the destination buffer.
+ * @return The total length of the string they tried to create.
+*/
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+
+/**
+ * @brief Appends the NUL-terminated string src to the end of dst. It will append at most size - strlen(dst) - 1 bytes, NUL-terminating the result.
+ * @param dest The string to append to.
+ * @param src The string to append.
+ * @param size The size of the destination buffer.
+ * @return The total length of the string they tried to create.
+*/
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 
 #endif

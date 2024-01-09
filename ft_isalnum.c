@@ -21,12 +21,3 @@ int	ft_isalnum(int argument)
 	else
 		return (0);
 }
-// int main() {
-//     char test_cases[] = {'a', '5', '#', 'Z', '9', '!', ' '};
-//     printf("Test cases:\n");
-//     for (int i = 0; i < sizeof(test_cases) / sizeof(test_cases[0]); i++) {
-//         char c = test_cases[i];
-//         printf("Character: %c | isalnum: %d\n", c, ft_isalnum(c));
-//     }
-//     return 0;
-// }

@@ -237,9 +237,29 @@ void	*ft_memmove(void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 // ---string-functions---
+/**
+ * @brief Compares at most the first n bytes of str1 and str2.
+ * @param s1 This is the first string to be compared.
+ * @param s2 This is the second string to be compared.
+ * @param n This is the number of bytes to be compared.
+*/
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
+/**
+ * @brief Applies the function ’f’ on each character of the string passed as argument, passing its index as first argument. Each character is passed by address to ’f’ to be modified if necessary.
+ * @param s The string on which to iterate.
+ * @param f The function to apply to each character.
+*/
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+/**
+ * @brief Searches for the first occurrence of the character c in the string pointed to by the argument str.
+ * @param s This is the C string to be scanned.
+ * @param c This is the character to be searched in str.
+*/
 char	*ft_strchr(const char *s, int i);
+
+
 char	*ft_strdup(const char *s);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);

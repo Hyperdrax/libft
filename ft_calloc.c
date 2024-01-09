@@ -32,30 +32,3 @@ void	*ft_calloc(size_t nitems, size_t size)
 	}
 	return (allocated_memory);
 }
-// int main() {
-//     size_t num_elements1 = 5;
-//     size_t element_size1 = sizeof(int);
-//     size_t num_elements2 = 3;
-//     size_t element_size2 = sizeof(char);
-//     int *arr1 = (int *)ft_calloc(num_elements1, element_size1);
-//     if (arr1 != NULL) {
-//         printf("Test Case 1:\n");
-//         for (size_t i = 0; i < num_elements1; i++) {
-//             printf("%d ", arr1[i]);
-//         }
-//         printf("\n");
-
-//         free(arr1);
-//     }
-//     char *arr2 = (char *)ft_calloc(num_elements2, element_size2);
-//     if (arr2 != NULL) {
-//         printf("\nTest Case 2:\n");
-//         for (size_t i = 0; i < num_elements2; i++) {
-//             printf("%c ", arr2[i]);
-//         }
-//         printf("\n");
-
-//         free(arr2);
-//     }
-//     return 0;
-// }

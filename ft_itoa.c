@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 static int	getlen(long nbr)
 {
@@ -70,13 +69,3 @@ char	*ft_itoa(int n)
 	allocated_memory[len] = 0;
 	return (allocated_memory);
 }
-// int main() {
-//     int test_cases[] = {123, -456, 0, 987654321, -2147483648, 42};
-//     for (int i = 0; i < sizeof(test_cases) / sizeof(test_cases[0]); i++) {
-//         int value = test_cases[i];
-//         char *result = ft_itoa(value);
-//         printf("Integer: %d | String: %s\n", value, result);
-//         free(result);
-//     }
-//     return 0;
-// }

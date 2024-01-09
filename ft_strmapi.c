@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -36,15 +35,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	result[len] = '\0';
 	return (result);
 }
-// char transform_char(unsigned int index, char c) {
-//     return c + index;
-// }
-
-// int main() {
-//     const char str[] = "Lello, World!";
-//     printf("Original String: %s\n", str);
-//     char *result = ft_strmapi(str, transform_char);
-//     printf("Transformed String: %s\n", result);
-//     free(result);
-//     return 0;
-// }

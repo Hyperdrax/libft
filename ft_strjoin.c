@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
-#include <stdio.h>
 
 static char	check(const char *s)
 {
@@ -46,27 +44,3 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		ft_strlcat(result, s2, total_length + 1);
 	return (result);
 }
-// int main() {
-//     const char str1[] = "Hello, ";
-//     const char str2[] = "World!";
-//     const char str3[] = "";
-//     const char *str4 = NULL;
-//     const char *str5 = NULL;
-//     char *result1 = ft_strjoin(str1, str2);
-//     printf("Test Case 1: Concatenating \"%s\" and \"%s\"\n", str1, str2);
-//     printf("Result: \"%s\"\n", result1);
-//     free(result1);
-//     char *result2 = ft_strjoin(str3, str2);
-//     printf("\nTest Case 2: Concatenating \"%s\" and \"%s\"\n", str3, str2);
-//     printf("Result: \"%s\"\n", result2);
-//     free(result2);
-//     char *result3 = ft_strjoin(str4, str2);
-//     printf("\nTest Case 3: Concatenating NULL and \"%s\"\n", str2);
-//     printf("Result: \"%s\"\n", result3);
-//     free(result3);
-//     char *result4 = ft_strjoin(str5, str4);
-//     printf("\nTest Case 4: Concatenating NULL and NULL\n");
-//     printf("Result: \"%s\"\n", result4);
-//     free(result4);
-//     return 0;
-// }

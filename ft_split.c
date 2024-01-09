@@ -100,17 +100,3 @@ char	**ft_split(const char *s, char c)
 	}
 	return (res);
 }
-// int main() {
-//     const char *input_string = "Hello,World,How,Are,You";
-//     char delimiter = ',';
-//     char **result = ft_split(input_string, delimiter);
-//     if (result == NULL) {
-//         printf("Memory allocation failed for result array.\n");
-//         return 1;
-//     }
-//     for (int i = 0; result[i] != NULL; i++) {
-//         printf("Token %d: %s\n", i, result[i]);
-//     }
-//     free_tokens(result);
-//     return 0;
-// }

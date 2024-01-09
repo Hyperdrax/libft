@@ -26,18 +26,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (src_len);
 }
-
-// int	main(void)
-// {
-// 	int	i;
-// 	char	src[12] = " worldworldw";
-// 	char	dest[24] = "hello";
-
-// 	i = 0;
-// 	strlcpy(dest, src, sizeof(dest));
-// 	while (dest[i] != '\0')
-// 	{
-// 		printf("%c",dest[i]);
-// 		i++;
-// 	}
-// }

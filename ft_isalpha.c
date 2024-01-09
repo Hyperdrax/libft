@@ -21,14 +21,3 @@ int	ft_isalpha(int argument)
 	else
 		return (0);
 }
-// int main() {
-//     char test_cases[] = {'a', '5', '#', 'Z', '9', '!', ' '};
-
-//     printf("Test cases:\n");
-//     for (int i = 0; i < sizeof(test_cases) / sizeof(test_cases[0]); i++) {
-//         char c = test_cases[i];
-//         printf("Character: %c | isalpha: %d\n", c, ft_isalpha(c));
-//     }
-
-//     return 0;
-// }

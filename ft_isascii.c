@@ -19,12 +19,3 @@ int	ft_isascii(int arg)
 	else
 		return (0);
 }
-// int main() {
-//     int test_cases[] = {65, 97, 48, 127, 128, -1, 0};
-//     printf("Test cases:\n");
-//     for (int i = 0; i < sizeof(test_cases) / sizeof(test_cases[0]); i++) {
-//         int value = test_cases[i];
-//         printf("Value: %d | isascii: %d\n", value, ft_isascii(value));
-//     }
-//     return 0;
-// }

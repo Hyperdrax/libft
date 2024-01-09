@@ -25,21 +25,3 @@ char	*ft_strdup(const char *source)
 		ft_strlcpy(duplicate, source, length);
 	return (duplicate);
 }
-// int main() {
-//     const char str1[] = "Hello, World!";
-//     const char str2[] = "Testing ft_strdup";
-//     const char str3[] = "";
-//     char *result1 = ft_strdup(str1);
-//     printf("Test Case 1: Original: \"%s\" | Duplicate: \"%s\"\n"
-//, str1, result1);
-//     free(result1);
-//     char *result2 = ft_strdup(str2);
-//     printf("\nTest Case 2: Original: \"%s\" | Duplicate: \"%s\"\n"
-//, str2, result2);
-//     free(result2); 
-//     char *result3 = ft_strdup(str3);
-//     printf("\nTest Case 3: Original: \"%s\" | Duplicate: \"%s\"\n"
-//, str3, result3);
-//     free(result3); 
-//     return 0;
-// }

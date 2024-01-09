@@ -19,12 +19,3 @@ int	ft_isdigit(int arg)
 	else
 		return (0);
 }
-// int main() {
-//     char test_cases[] = {'0', '5', '9', 'a', '#', ' '};
-//     printf("Test cases:\n");
-//     for (int i = 0; i < sizeof(test_cases) / sizeof(test_cases[0]); i++) {
-//         char c = test_cases[i];
-//         printf("Character: %c | isdigit: %d\n", c, ft_isdigit(c));
-//     }
-//     return 0;
-// }

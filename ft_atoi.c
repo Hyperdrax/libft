@@ -46,28 +46,3 @@ int	ft_atoi(const char *str)
 	result *= sign;
 	return (result);
 }
-
-// int main() {
-//     const char *test_cases[] = {
-//         "123",
-//         "-456",
-//         "   789",
-//         "+321",
-//         "  -987",
-//         "0",
-//         "  42abc",
-//         "   -123xyz",
-//         "   +999",
-//         "   2147483647",  // INT_MAX
-//         "   -2147483648", // INT_MIN
-//         "   2147483648",  // Out of range
-//         "   -2147483649", // Out of range
-//     };
-//     int i;
-//     for (i = 0; i < sizeof(test_cases) / sizeof(test_cases[0]); i++)
-// 	{
-//         const char *test_case = test_cases[i];
-//         int result = ft_atoi(test_case);
-//         printf("String: %-15s | Result: %d\n", test_case, result);
-//     }
-// }

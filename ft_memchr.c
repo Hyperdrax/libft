@@ -29,25 +29,4 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	}
 	return (NULL);
 }
-// int main() {
-//     const char str1[] = "Hello, World!";
-//     const char str2[] = "Testing ft_memchr";
-//     const char str3[] = "12346789";
-//     int search_char1 = 'o';
-//     int search_char2 = 'f';
-//     int search_char3 = '5';
-//     size_t n1 = strlen(str1);
-//     size_t n2 = strlen(str2);
-//     size_t n3 = strlen(str3);
-//     void *result1 = ft_memchr(str1, search_char1, n1);
-//     printf("Test Case 1: Searching for '%c' in \"%s\"\n"
-//, search_char1, str1);
-//     printf("Result: %s\n", result1 ? "Found" : "Not found");
-//     void *result2 = ft_memchr(str2, search_char2, n2);
-//     printf("\nTest Case 2: Searching for '%c' in \"%s\"\n"
-//, search_char2, str2);
-//     printf("Result: %s\n", result2 ? "Found" : "Not found");
-//     void *result3 = ft_memchr(str3, search_char3, n3);
-//     printf("Result: %s\n", result3 ? "Found" : "Not found");
-//     return 0;
-// }
+

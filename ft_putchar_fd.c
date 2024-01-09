@@ -10,15 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
-// int main() {
-//     char character = 'A';
-//     ft_putchar_fd(character, 1);
-//     ft_putchar_fd(character, 2);
-//     return 0;
-// }
